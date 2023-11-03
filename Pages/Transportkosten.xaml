@@ -1,0 +1,211 @@
+﻿<Page x:Class="WpfAppToolBar.Pages.Transportkosten"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAppToolBar.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="800"
+      Title="Transportkosten">
+
+    <Grid Background="#FFF5F5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="45" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBox Text="Transport" BorderThickness="0" x:Name="txt_boxVorbereitungoben" TextWrapping="Wrap" Margin="50,7,0,10" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBox Margin="0,10,10,0" BorderThickness="0" Text="In Abhängigkeit von der Länge der einzelnen Bauteile werden hier die Transportkosten verglichen. Die spezifischen Kosten für die Spedition sind individiuell anzupassen in der hinterlegten Excel-Tabelle!" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!--0 Stöße oben links-->
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label FontSize="14" FontWeight="Bold" Content="0 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,2,20,0" Text="Keine Teilung des Bauteils"/>
+
+            <DockPanel Margin="0,0,10,0" >
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,10,50,0" Text="Gesamtlänge Bauteil 1:"   />
+                <TextBox  Margin="0,8.5,10,0" x:Name="txt_box_0stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten pro LKW:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="KostenLKW0"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,4,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten Summe:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="TransportLKW0"/>
+            </DockPanel>
+
+            <!--2 Stöße oben-->
+            <Label Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="2 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,2,20,0" Text="Teilung im Viertelspunkt (1/4 ; 2/4 ; 1/4)"/>
+            
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,15,0" Text="Gesamtlänge Bauteil 1:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="txt_box_22stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,15,0" BorderThickness="0" Background="Transparent"  Text="Gesamtlänge Bauteil 2:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="txt_box_22stoßkosten"/>
+            </DockPanel>
+            
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten pro LKW:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="KostenLKW2"/>
+            </DockPanel>
+            
+            <DockPanel>
+                <TextBox Margin="0,5,4,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten Summe:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="TransportLKW2"/>
+            </DockPanel>
+
+        </StackPanel>
+
+
+        <!--1 Stoß oben rechts-->
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Label FontSize="14" FontWeight="Bold" Content="1 Stoß"/>
+            <TextBox Background="LightGray" Margin="0,0,10,0" Text="Teilung im Mittelspunkt (1/2)" />
+
+            <DockPanel>
+                <TextBox Margin="0,5,15,0" BorderThickness="0" Background="Transparent"  Text="Gesamtlänge Bauteil 1:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="Laenge1"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten pro LKW:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="KostenLKW1"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,4,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten Summe:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="TransportLKW1"/>
+            </DockPanel>
+
+            <Label FontSize="14" FontWeight="Bold" Content="1 Stoß" Margin="0,6,10,0"/>
+            <TextBox Background="LightGray" Margin="0,0,10,0" Text="Teilung im Drittelspunkt (1/3 ; 2/3)" />
+
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,15,0" Text="Gesamtlänge Bauteil 1:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="Laenge11"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,15,0" BorderThickness="0" Background="Transparent"  Text="Gesamtlänge Bauteil 2:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="Laenge12"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten pro LKW:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="KostenLKW11"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,4,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten Summe:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="TransportLKW11"/>
+            </DockPanel>
+
+        </StackPanel>
+
+        <!--2 Stöße unten links-->
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Label Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="2 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,0,20,0" Text="Teilung im Drittelspunkt (1/3 ; 1/3 ; 1/3)"/>
+           
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,35,0" Text="Gesamtlänge Bauteil 1:"   />
+                <TextBox Margin="15,5,20,0" x:Name="Laenge22"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten pro LKW:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="KostenLKW22"/>
+            </DockPanel>
+            
+            <DockPanel>
+                <TextBox Margin="0,5,4,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten Summe:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="Transportkosten22"/>
+            </DockPanel>
+
+            <!--3 Stöße unten links--> 
+            <Label Margin="0,10,0,0" FontSize="14" FontWeight="Bold" Content="3 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,0,20,0" Text="Teilung im Viertelspunkt (1/4 ; 1/4 ; 1/4 ; 1/4)"/>
+          
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,35,0" Text="Gesamtlänge Bauteil 1:"   />
+                <TextBox Margin="15,5,20,0" x:Name="Laenge3"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten pro LKW:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="KostenLKW3"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,4,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten Summe:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="Transportkosten3"/>
+            </DockPanel>
+
+
+
+        </StackPanel>
+
+        <!--Zusammenfassung-->
+        <StackPanel Grid.Row="3" Grid.Column="2" Margin="0,8,0,0">
+            <!--Zusammenfassung Kosten-->
+            <TextBox Background="LightGray" Margin="0,20,10,0" Text="Zusammenfassung:"/>
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,31,0" Text="Transportkosten kleiner 13.6 m:" />
+                <TextBox x:Name="txt_box_GewichtRohmaterial" Margin="0,6,10,0" />
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,29,0" Text="Transportkosten kleiner 18.0:"   />
+                <TextBox Margin="0,5,10,0" x:Name="txt_box_GewichtLasche"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,10,0" BorderThickness="0" Background="Transparent"  Text="Transportkosten größer 18.0 m:"   />
+                <TextBox Margin="0,5,10,0" x:Name="txt_box_GewichtStirn"/>
+            </DockPanel>
+            <!--Zusammenfassung Maximale Anordnung-->
+            <TextBox Background="LightGray" Margin="0,28,10,0" Text="Maximale Anordnung pro Standard"/>
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,31,0" Text="Materialkosten pro Rohmaterial:" />
+                <TextBox x:Name="txt_box_KostenRohmaterial" Margin="0,6,10,0" />
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,30,0" Text="Materialkosten pro Laschenstoß:"   />
+                <TextBox Margin="0,5,10,0" x:Name="txt_box_KostenLasche"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten pro Stirnplattenstoß:"   />
+                <TextBox Margin="10,5,10,0" x:Name="txt_box_KostenStirn"/>
+            </DockPanel>
+
+        </StackPanel>
+        <!--//Button oben links zurück-->
+        <Button Grid.ColumnSpan="2" Foreground="Black" Command="NavigationCommands.BrowseBack"  Padding="2" Content="Zurück" Margin="10,0,0,0"  Height="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" FontSize="8"/>
+
+        <!--Button berechnen unten-->
+        <Button Margin="0,0,20,0" Click="btn_weiter_Click" x:Name="btn_weiter" Width="Auto" Content="Weiter" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

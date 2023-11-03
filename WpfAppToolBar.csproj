@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject>WpfAppToolBar.App</StartupObject>
+    <ApplicationIcon />
+    <Win32Resource />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Bilder\Fertigung.jpg" />
+    <None Remove="Bilder\Kasten.png" />
+    <None Remove="Bilder\Kreis.jpg" />
+    <None Remove="Bilder\LKW.jpg" />
+    <None Remove="Bilder\Maßskizze.png" />
+    <None Remove="Bilder\Montage.jpg" />
+    <None Remove="Bilder\Oberwart.png" />
+    <None Remove="Bilder\Rechteck.png" />
+    <None Remove="Bilder\Traeger.png" />
+    <None Remove="Bilder\UngerLogo.jpg" />
+    <None Remove="Bilder\Winkel.png" />
+    <None Remove="Bilder\Zusammengesetzte.png" />
+    <None Remove="~%24Breite_Laenge.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="30.0.1" />
+    <PackageReference Include="EPPlus" Version="6.2.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\Fertigung.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Kasten.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Kreis.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\LKW.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Maßskizze.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Montage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Oberwart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Rechteck.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\UngerLogo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Winkel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Zusammengesetzte.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+
+</Project>

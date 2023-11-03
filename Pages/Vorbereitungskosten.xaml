@@ -1,0 +1,203 @@
+﻿<Page x:Class="WpfAppToolBar.Pages.Vorbereitungskosten"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAppToolBar.Pages" xmlns:wpfapptoolbar="clr-namespace:WpfAppToolBar" 
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="800"
+      Title="Vorbereitungskosten">
+
+    <Grid Background="#FFF5F5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="45" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBox Text="Vorbereitungsprozesse" BorderThickness="0" x:Name="txt_boxVorbereitungoben" TextWrapping="Wrap" Margin="50,7,0,10" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBox Margin="0,10,10,0" BorderThickness="0" Text="Es werden vier mögliche Verbindungen untersucht: 0 Stöße, 1 Stoß. 2 Stöße und 3 Stöße. Gezeigt werden die Teilungspunkte sowie die Materialkosten für die jeweilige Ausführung. Wählen Sie die passende / notwendige Stoßart aus." TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!--0 Stöße oben links-->
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label FontSize="14" FontWeight="Bold" Content="0 Stöße"/>
+            <TextBox Height="50" TextWrapping="Wrap" Margin="0,0,20,0" x:Name="textBoxLänge"/>
+
+            <DockPanel Margin="0,0,10,0" >
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,10,10,0" Text="Benötigtes Material:"   />
+                <TextBox  Margin="0,8.5,10,0" x:Name="txt_box_0stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,0,10,0">
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten:"   />
+                <TextBox Margin="34.5,5,10,0" x:Name="txt_box_0stoßkosten"/>
+            </DockPanel>
+
+            <!--2 Stöße oben-->
+            <Label FontSize="14" FontWeight="Bold" Content="2 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,2,20,0" Text="Teilung im Viertelspunkt (1/4 ; 2/4 ; 1/4)"/>
+            <ComboBox SelectionChanged="Stoßart22_SelectionChanged" x:Name="Stoßart22" Margin="0,0,20,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Stoss}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ComboBox>
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,10,0" Text="Benötigtes Material:"   />
+                <TextBox Margin="0,5,20,0" x:Name="txt_box_22stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="txt_box_22stoßkosten"/>
+            </DockPanel>
+
+        </StackPanel>
+
+
+        <!--1 Stoß oben rechts-->
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Label FontSize="14" FontWeight="Bold" Content="1 Stoß"/>
+            <TextBox Background="LightGray" Margin="0,0,10,0" Text="Teilung im Mittelspunkt (1/2)" />
+            <ComboBox SelectedIndex="1" SelectionChanged="Stoßart_SelectionChanged" x:Name="Stoßart" Margin="0,0,10,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Stoss}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ComboBox>
+            
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,20,10,0" Text="Benötigtes Material:"   />
+                <TextBox  Margin="0,20,10,0" x:Name="txt_box_1stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten:"   />
+                <TextBox Margin="34.5,5,10,0" x:Name="txt_box_1stoßkosten"/>
+            </DockPanel>
+
+            <Label FontSize="14" FontWeight="Bold" Content="1 Stoß" Margin="0,0,10,0"/>
+            <TextBox Background="LightGray" Margin="0,0,10,0" Text="Teilung im Drittelspunkt (1/3 ; 2/3)" />
+            <ComboBox SelectionChanged="Stoßart11_SelectionChanged" x:Name="Stoßart11" Margin="0,0,10,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Stoss}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ComboBox>
+
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,7,10,0" Text="Benötigtes Material:"   />
+                <TextBox  Margin="0,5,10,0" x:Name="txt_box_11stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,7,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten:"   />
+                <TextBox Margin="34.5,5,10,0" x:Name="txt_box_11stoßkosten"/>
+            </DockPanel>
+
+        </StackPanel>
+
+        <!--2 Stöße unten links-->
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Label Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="2 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,0,20,0" Text="Teilung im Drittelspunkt (1/3 ; 1/3 ; 1/3)"/>
+            <ComboBox SelectionChanged="Stoßart2_SelectionChanged" x:Name="Stoßart2" Margin="0,0,20,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Stoss}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ComboBox> 
+             <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,10,0" Text="Benötigtes Material:"   />
+                <TextBox Margin="0,5,20,0" x:Name="txt_box_2stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="txt_box_2stoßkosten"/>
+            </DockPanel>
+
+            <Label Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="3 Stöße"/>
+            <TextBox Background="LightGray" Margin="0,0,20,0" Text="Teilung im Viertelspunkt (1/4 ; 1/4 ; 1/4 ; 1/4)"/>
+            <ComboBox SelectionChanged="Stoßart3_SelectionChanged"  x:Name="Stoßart3" Margin="0,0,20,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Stoss}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ComboBox>
+
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,10,0" Text="Benötigtes Material:"   />
+                <TextBox Margin="0,5,20,0" x:Name="txt_box_3stoßmaterial"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten:"   />
+                <TextBox Margin="34.5,5,20,0" x:Name="txt_box_3stoßkosten"/>
+            </DockPanel>
+
+
+
+        </StackPanel>
+
+        <!--Zusammenfassung-->
+        <StackPanel Grid.Row="3" Grid.Column="2" Margin="0,8,0,0">
+            <!--Zusammenfassung Gewicht-->
+            <TextBox Background="LightGray" Margin="0,20,10,0" Text="Zusammenfassung:"/>
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,31,0" Text="Gewicht pro Rohmaterial:" />
+                <TextBox x:Name="txt_box_GewichtRohmaterial" Margin="0,6,10,0" />
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,29,0" Text="Gewicht pro Laschenstoß inkl. Schrauben:"   />
+                <TextBox Margin="0,5,10,0" x:Name="txt_box_GewichtLasche"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,10,0" BorderThickness="0" Background="Transparent"  Text="Gewicht pro Stirnplattenstoß inkl. Schrauben:"   />
+                <TextBox Margin="0,5,10,0" x:Name="txt_box_GewichtStirn"/>
+            </DockPanel>
+
+            <!--Zusammenfassung Materialkosten-->
+            <TextBox Background="LightGray" Margin="0,28,10,0" Text="Zusammenfassung:"/>
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,31,0" Text="Materialkosten pro Rohmaterial:" />
+                <TextBox x:Name="txt_box_KostenRohmaterial" Margin="0,6,10,0" /> 
+            </DockPanel>
+  
+            <DockPanel>
+                <TextBox BorderThickness="0" Background="Transparent" Margin="0,5,29,0" Text="Materialkosten pro Laschenstoß inkl. Schrauben:"   />
+                <TextBox Margin="0,5,10,0" x:Name="txt_box_KostenLasche"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBox Margin="0,5,0,0" BorderThickness="0" Background="Transparent"  Text="Materialkosten pro Stirnplattenstoß inkl. Schrauben:"   />
+                <TextBox Margin="10,5,10,0" x:Name="txt_box_KostenStirn"/>
+            </DockPanel>
+        </StackPanel>
+        <!--//Button oben links zurück-->
+        <Button Grid.ColumnSpan="2" Foreground="Black" Command="NavigationCommands.BrowseBack"  Padding="2" Content="Zurück" Margin="10,0,0,0"  Height="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" FontSize="8"/>
+
+        <!--Button berechnen unten-->
+        <Button Margin="0,0,20,0" Click="btn_berechnen2_Click" x:Name="btn_berechnen2" Width="Auto" Content="Weiter" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
